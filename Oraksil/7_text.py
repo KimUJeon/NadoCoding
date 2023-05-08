@@ -1,6 +1,8 @@
+import os
 import pygame
 
 pygame.init()  # 반드시 초기화 해야함
+filepath = os.getcwd()
 
 # 화면 크기 설정
 screen_width = 480  # 가로
@@ -14,10 +16,10 @@ pygame.display.set_caption("Test Game")
 clock = pygame.time.Clock()
 
 # 배경 이미지 불러오기
-background = pygame.image.load("D:/Python/NadoCoding/Oraksil/background.png")
+background = pygame.image.load(filepath + "/background.png")
 
 # 스프라이트(캐릭터) 불러오기
-character = pygame.image.load("D:/Python/NadoCoding/Oraksil/character.png")
+character = pygame.image.load(filepath + "/character.png")
 character_size = character.get_rect().size  # 이미지 크기 구함
 character_width = character_size[0]
 character_height = character_size[1]
@@ -32,12 +34,21 @@ to_y = 0
 character_speed = 0.3
 
 # Enemy 캐릭터
-enemy = pygame.image.load("D:/Python/NadoCoding/Oraksil/enemy.png")
+enemy = pygame.image.load(filepath + "/enemy.png")
 enemy_size = character.get_rect().size  # 이미지 크기 구함
 enemy_width = character_size[0]
 enemy_height = character_size[1]
 enemy_x_pos = (screen_width / 2) - (enemy_width / 2)
 enemy_y_pos = (screen_height / 2) - (enemy_height / 2)
+
+# 폰트 정의
+game_font = pygame.font.Font(None, 40) # 폰트 객체 생성, 폰트파일, 크기
+
+# 총 시간
+total_time = 10
+
+# 시작 시간
+start_ticks = pygame.time.get_ticks() # 시작 tick 받아옴
 
 # 이벤트 루프
 running = True
@@ -95,7 +106,22 @@ while running:
     screen.blit(character, (character_x_pos, character_y_pos)) # 캐릭터 그리기
     screen.blit(enemy, (enemy_x_pos, enemy_y_pos)) # 적 그리기
 
+    # 타이머 집어 넣기
+    # 경과 시간 계산
+    elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000
+
+    timer = game_font.render(str(int(total_time - elapsed_time)), True, (255, 255, 255))
+    # 출력 글자, True, 색상
+    screen.blit(timer, (10, 10))
+
+    # 만약 시간이 0 이하이면 종료
+    if total_time - elapsed_time <= 0:
+        print("타임아웃")
+        running = False
+
     pygame.display.update()  # 게임화면을 다시 그리기
+
+pygame.time.delay(2000) # 2초 대기
 
 # pygame 종료
 pygame.quit()
