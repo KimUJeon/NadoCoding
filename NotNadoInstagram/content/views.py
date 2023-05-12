@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Feed
 
@@ -9,3 +10,15 @@ class Main(APIView):
 
         return render(request, "notnadocoding/main.html", context=dict(feeds=feed_list))
 
+class UploadFeed(APIView):
+    def post(self, request):
+
+        file = request.data.get('file')
+        image = request.data.get('image')
+        content = request.data.get('content')
+        user_id = request.data.get('user_id')
+        profile_image = request.data.get('profile_image')
+
+        print(file, image, content, user_id, profile_image)
+
+        return Response(status=200)

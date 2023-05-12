@@ -278,9 +278,9 @@
             <div style="border-left: solid 1px gray;">
                 <div>
                     <textarea class="form-control" style="width: 276px; height: 400px;"
-                              id="exampleFormControlTextarea1" rows="5"></textarea>
+                              id="input_feed_content" rows="5"></textarea>
                 </div>
-                <button type="button" class="btn btn-primary" style="width: 100%;">
+                <button id="feed_create_btn" type="button" class="btn btn-primary" style="width: 100%;">
                     공유하기
                 </button>
             </div>
@@ -288,13 +288,51 @@
     </div>
 </div>
 
+<!-- 자바스크립트 -->
 <script>
+
+    let files;
+
     $('#add_feed').click(function() {
         $('#first_modal').css({
             display: "flex"
         });
         $(document.body).css({
             overflow: "hidden"
+        });
+    });
+
+    $('#feed_create_btn').click(function(){
+        alert("공유하기 작동!")
+
+        let file = files;
+        let image = files[0].name;
+        let content = $('#input_feed_content').val();
+        let user_id = "UJ";
+        let profile_image = "http://file3.instiz.net/data/file3/2021/05/31/b/e/3/be32bc46c1f181cd895ccee0ccfce27d.png";
+
+        let fd = new FormData();
+        fd.append('file', file);
+        fd.append('image', image);
+        fd.append('content', content);
+        fd.append('user_id', user_id);
+        fd.append('profile_image', profile_image);
+
+        $.ajax({
+            url: "/content/upload",
+            data: fd,
+            method: "POST",
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                console.log("성공!");
+            },
+            error: function(request, status, error){
+                console.log("에러!!!!!");
+            },
+            complete: function(){
+                console.log("완료")
+            }
         });
     });
 
@@ -329,7 +367,7 @@
         dragOver(e);
 
         e.dataTransfer = e.originalEvent.dataTransfer;
-        var files = e.target.files || e.dataTransfer.files;
+        files = e.target.files || e.dataTransfer.files;
 
         if(files.length > 1){
             alert("하나만 올려");
