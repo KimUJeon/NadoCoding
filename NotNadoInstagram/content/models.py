@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class feed(models.Model):
+class Feed(models.Model):
     content = models.TextField() # 글 내용
     image = models.TextField() # 피드 이미지
     profile_image = models.TextField() # 프로필 이미지
