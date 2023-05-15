@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +125,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 각 media 파일에 대한 URL prefix
+MEDIA_URL = '/media/' # 항상 / 로 끝나야 함
+# MEDIA_URL = 'http://주소/media/' 다른 서버로 media 파일 복사 시
+
+# 업로드 파일을 저장할 디렉토리
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
