@@ -11,7 +11,7 @@ from NotNadoInstagram.settings import MEDIA_ROOT
 class Main(APIView):
     def get(self, request):
         feed_list = Feed.objects.all().order_by('-id') # select * from content_feed 랑 동일한 동작
-
+        print(request.session['email'])
         return render(request, "notnadocoding/main.html", context=dict(feeds=feed_list))
 
 class UploadFeed(APIView):
