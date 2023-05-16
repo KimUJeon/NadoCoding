@@ -684,8 +684,9 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 [ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
 DevTools listening on ws://127.0.0.1:10266/devtools/browser/ab4a3fbc-50b4-44e8-94d8-57087cf77b03
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://finance.naver.com."
-1683292383424	geckodriver	INFO	Listening on 127.0.0.1:10365
-1683292386481	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10366" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Prerain\\AppData\\Local\\Temp\\rust_mozprofileZokBZU"
+1683292578584	Marionette	INFO	Stopped listening on port 10275
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10366" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Prerain\\AppData\\Local\\Temp\\rust_mozprofileZokBZU"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1683292386930	Marionette	INFO	Marionette enabled
@@ -698,8 +699,9 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 [ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
 DevTools listening on ws://127.0.0.1:10366/devtools/browser/461839d1-7e12-4789-a818-91120688258f
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://finance.naver.com."
-1683292425741	geckodriver	INFO	Listening on 127.0.0.1:10464
-1683292428805	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10465" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Prerain\\AppData\\Local\\Temp\\rust_mozprofilebBv8ES"
+1683292575160	Marionette	INFO	Stopped listening on port 10376
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10465" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Prerain\\AppData\\Local\\Temp\\rust_mozprofilebBv8ES"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 1683292429144	Marionette	INFO	Marionette enabled
