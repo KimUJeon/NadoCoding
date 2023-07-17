@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello This is a View inside my_app")
+def example_view(request):
+    return render(request, 'my_app/example.html')
+
+def variable_view(request):
+    return render(request, 'my_app/variable.html')
