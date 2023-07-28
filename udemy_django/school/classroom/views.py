@@ -18,6 +18,9 @@ class TeacherCreateView(CreateView):
 
 class TeacherListView(ListView):
     model = Teacher
+    queryset = Teacher.objects.order_by('first_name')
+
+    context_object_name = "teacher_list"
 
 class ContactFormView(FormView):
     form_class = ContactForm
