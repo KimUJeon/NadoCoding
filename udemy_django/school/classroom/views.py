@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView
 from classroom.models import Teacher
 from classroom.forms import ContactForm
 
@@ -26,6 +26,11 @@ class TeacherDetailView(DetailView):
     # RETURN ONLY ONE MODEL ENTRY PK
     # model_detail.html
     model = Teacher
+
+class TeacherUpdateView(UpdateView):
+    model = Teacher
+    fields = "__all__"
+    success_url = reverse_lazy("classroom:update_teacher")
 
 class ContactFormView(FormView):
     form_class = ContactForm

@@ -8,7 +8,14 @@
     <h1> List of Teachers(ListView)</h1>
     <ul>
         {% for teacher in teacher_list %}
-            <li><a href="/classroom/teacher_detail/{{ teacher.id }}">{{ teacher.first_name }} {{ teacher.last_name }} </a></li>
+            <li>
+                <a href="/classroom/teacher_detail/{{ teacher.id }}"> {{ teacher.first_name }} {{ teacher.last_name }} </a>
+                <ul>
+                    <li>
+                        <a href="/classroom/update_teacher/{{ teacher.id }}"> Update Information for {{ teacher.first_name }}</a>
+                    </li>
+                </ul>
+            </li>
         {% endfor %}
     </ul>
 </body>
